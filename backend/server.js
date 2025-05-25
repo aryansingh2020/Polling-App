@@ -7,7 +7,12 @@ const authRoutes = require('./routes/auth');
 const pollRoutes = require('./routes/poll');
 
 const app = express();
-app.use(cors());
+const corsOptions = {
+  origin: 'https://polling-app-frontend-1y3f.onrender.com'
+};
+
+app.use(cors(corsOptions));
+
 app.use(express.json());
 
 mongoose.connect(process.env.MONGO_URI)

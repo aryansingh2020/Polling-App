@@ -2,9 +2,6 @@ const ErrorResponse = require('../utils/errorResponse');
 const Poll = require('../models/Poll');
 const User = require('../models/User');
 
-// @desc    Get all polls
-// @route   GET /api/v1/polls
-// @access  Public
 exports.getPolls = async (req, res, next) => {
   try {
     let query;
@@ -28,9 +25,7 @@ exports.getPolls = async (req, res, next) => {
   }
 };
 
-// @desc    Get single poll
-// @route   GET /api/v1/polls/:id
-// @access  Public
+
 exports.getPoll = async (req, res, next) => {
   try {
     const poll = await Poll.findById(req.params.id).populate(
@@ -62,9 +57,7 @@ exports.getPoll = async (req, res, next) => {
   }
 };
 
-// @desc    Create new poll
-// @route   POST /api/v1/polls
-// @access  Private/Admin
+
 exports.createPoll = async (req, res, next) => {
   try {
     // Add user to req.body
@@ -94,9 +87,7 @@ exports.createPoll = async (req, res, next) => {
   }
 };
 
-// @desc    Update poll
-// @route   PUT /api/v1/polls/:id
-// @access  Private/Admin
+
 exports.updatePoll = async (req, res, next) => {
   try {
     let poll = await Poll.findById(req.params.id);
@@ -146,9 +137,7 @@ exports.updatePoll = async (req, res, next) => {
   }
 };
 
-// @desc    Delete poll
-// @route   DELETE /api/v1/polls/:id
-// @access  Private/Admin
+
 exports.deletePoll = async (req, res, next) => {
   try {
     const poll = await Poll.findById(req.params.id);
@@ -180,9 +169,7 @@ exports.deletePoll = async (req, res, next) => {
   }
 };
 
-// @desc    Vote on a poll
-// @route   PUT /api/v1/polls/:id/vote
-// @access  Private
+
 exports.vote = async (req, res, next) => {
   try {
     const { optionId } = req.body;
@@ -229,9 +216,7 @@ exports.vote = async (req, res, next) => {
   }
 };
 
-// @desc    Close poll manually
-// @route   PUT /api/v1/polls/:id/close
-// @access  Private/Admin
+
 exports.closePoll = async (req, res, next) => {
   try {
     const poll = await Poll.findById(req.params.id);
