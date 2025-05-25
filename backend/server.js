@@ -7,11 +7,12 @@ const authRoutes = require('./routes/auth');
 const pollRoutes = require('./routes/poll');
 
 const app = express();
-const corsOptions = {
-  origin: 'https://polling-app-frontend-1y3f.onrender.com'
-};
+// const corsOptions = {
+//   origin: 'https://polling-app-frontend-1y3f.onrender.com'
+// };
+// app.use(cors(corsOptions));
 
-app.use(cors(corsOptions));
+app.use(cors());
 
 app.use(express.json());
 
